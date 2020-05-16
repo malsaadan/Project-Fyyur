@@ -74,6 +74,25 @@
 		{% endfor %}
 	</div>
 </section>
+<div class="row">
+	<div class="col-sm-6">
+		<button class="btn btn-danger" id="delete-btn" data-id="{{ venue.id }}">Delete!</button>
+	</div>
+</div>
+
+<script>
+	document.querySelector('#delete-btn').onclick = function(e){
+		console.log('Button has been clicked!')
+		const venueId = e.target.dataset['id']
+		fetch('/venues/'+venueId, {
+			method: 'DELETE'
+		}).then(()=> {
+			console.log(`Venue with ID ${venueId} has been deleted successfully.`);
+			window.location='/'
+		}).catch( error => {
+			console.log(error);
+		})
+	}
+</script>
 
 {% endblock %}
-
