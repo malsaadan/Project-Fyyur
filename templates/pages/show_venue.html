@@ -75,12 +75,20 @@
 	</div>
 </section>
 <div class="row">
-	<div class="col-sm-6">
-		<button class="btn btn-danger" id="delete-btn" data-id="{{ venue.id }}">Delete!</button>
+	<div class="col-sm-1">
+		<button class="btn btn-danger" id="delete-btn" data-id="{{ venue.id }}">Delete</button>
+	</div>
+	<div class="col-sm-1">
+		<button class="btn btn-primary" id="edit-btn" data-id="{{ venue.id }}">Edit</button>
 	</div>
 </div>
 
 <script>
+	document.querySelector('#edit-btn').onclick = function(e){
+			venueId = e.target.dataset['id']
+			window.location = "/venues/"+venueId+"/edit";
+		}
+
 	document.querySelector('#delete-btn').onclick = function(e){
 		console.log('Button has been clicked!')
 		const venueId = e.target.dataset['id']

@@ -70,6 +70,17 @@
 		</div>
 		{% endfor %}
 	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<button class="btn btn-primary" id="edit-btn" data-id="{{ artist.id }}">Edit</button>
+		</div>
+	</div>
+	<script>
+		document.querySelector('#edit-btn').onclick = function(e){
+			artistId = e.target.dataset['id']
+			window.location = "/artists/"+artistId+"/edit";
+		}
+	</script>
 </section>
 
 {% endblock %}

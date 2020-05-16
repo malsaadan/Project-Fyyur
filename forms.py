@@ -227,4 +227,13 @@ class ArtistForm(Form):
         'facebook_link', validators=[URL()]
     )
 
+    website = StringField(
+        'website', validators=[URL()]
+    )
+
+    seeking_venue = BooleanField('seeking_venue')
+
+    seeking_description = TextAreaField('seeking_description', validators=[Length(min=0, max=120, message="Maximum length is 120")])
+
+
 # TODO IMPLEMENT NEW ARTIST FORM AND NEW SHOW FORM
