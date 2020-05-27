@@ -113,7 +113,7 @@ def search_venues():
     data.append({
         'id': result.id,
         'name': result.name,
-        'num_upcoming_shows': len(result.shows.filter(show.start_time > datetime.now()))
+        'num_upcoming_shows': result.shows.filter(Show.start_time > datetime.now()).count()
       })
 
   response = {
@@ -246,7 +246,7 @@ def search_artists():
     data.append({
         'id': result.id,
         'name': result.name,
-        'num_upcoming_shows': len(artist.shows.filter(show.start_time > datetime.now()))
+        'num_upcoming_shows': result.shows.filter(Show.start_time > datetime.now()).count()
       })
 
   response = {
